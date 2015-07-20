@@ -1,0 +1,60 @@
+<table ng-show="!notFound">
+    <tr>
+        <td><strong>AdvertiserAccountId : </strong></td>
+
+        <td>{{ companyInfo.AdvertiserAccountId }}</td>
+    </tr>
+    <tr>
+        <td><strong>AdvertiserApplicationId : </strong></td>
+        <td>{{ companyInfo.AdvertiserApplicationId }}</td>
+    </tr>
+    <tr>
+        <td><strong>Id : </strong></td>
+        <td>{{ companyInfo.Id }}</td>
+    </tr>
+    <tr>
+        <td><strong>PublisherAccountId : </strong></td>
+        <td>{{ companyInfo.PublisherAccountId }}</td>
+    </tr>
+    <!--  "AdvertiserAccountId":1,"AdvertiserApplicationId":2,"Id":2,"PublisherAccountId":2,"PublisherPostbackUrlTemplate":"test_postback",
+      "RedirectHttpCode":"Found","RedirectMethod":"JavaScript","Status":"Active",
+      "Targetings":[{"Key":1,"Value":{"GeoLocation":{},"Languages":[]}}],
+      "TimeZoneOffset":"03:00:00","PublisherAccountPublicId":"picajio"}-->
+    <tr>
+        <td><strong>PublisherPostbackUrlTemplate : </strong></td>
+        <td>{{ companyInfo.PublisherPostbackUrlTemplate }}</td>
+    </tr>
+    <tr>
+        <td><strong>Status : </strong></td>
+        <td>-</td>
+    </tr>
+    <tr>
+        <td><strong>Key : </strong></td>
+        <td>{{ companyInfo.Targetings[0].Key }}</td>
+    </tr>
+    <tr>
+        <td><strong>Value : </strong></span></td>
+        <td>-</td>
+    </tr>
+    <tr>
+        <td><strong>GeoLocation : </strong></span></td>
+        <td>{{ companyInfo.Targetings[0].Value.GeoLocation }}</td>
+    </tr>
+    <tr>
+        <td><strong>Languages : </strong></td>
+        <td>{{ companyInfo.Targetings[0].Value.Languages }}</td>
+    </tr>
+    <tr>
+        <td><strong>TimeZoneOffset : </strong></td>
+        <td>{{ companyInfo.TimeZoneOffset }}</td>
+    </tr>
+    <tr>
+        <td><strong>PublisherAccountPublicId : </strong></td>
+        <td>{{ companyInfo.PublisherAccountPublicId }}</td>
+    </tr>
+</table>
+
+<!-- Show error if companyInfo is not defined  -->
+<div ng-show="notFound" class="alert alert-danger col-md-12">
+    Error !!! Employee not Found
+</div>

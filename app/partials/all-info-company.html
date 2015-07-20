@@ -1,0 +1,39 @@
+<div ng-switch on="view">
+    <div class="cd">
+        <button type="button" class="button" ng-click="view='list'">List</button>
+        <button type="button" class="button" ng-click="view='table'">Table</button>
+    </div>
+    <div class="cd">
+        <input type="button" class="button" value="Первый стиль" onclick="onCss1();"/>
+        <input type="button" class="button" value="Второй стиль" onclick="onCss2();"/>
+    </div>
+    <div ng-switch-when="list">
+        <pb-table-company
+                ng-repeat="list in lists"
+                list="list">
+        </pb-table-company>
+    </div>
+    <solo-table make-sortable="2">
+        <table ng-switch-when="table">
+            <thead>
+            <tr>
+                <th sort-by='Id'>Id</th>
+                <th sort-by='PublisherPostbackUrlTemplate'>PublisherPostbackUrlTemplate</th>
+                <th sort-by='RedirectMethod'>RedirectMethod</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="list in lists">
+                <td>{{ list.Id }}</td>
+                <td>{{ list.PublisherPostbackUrlTemplate }}</td>
+                <td>{{ list.RedirectMethod }}
+                    <a href="#profile/{{ list.Id }}"
+                       style="position: absolute; width: 100%; left: 0px; height: 1.5em;"></a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </solo-table>
+</div>
+
+
